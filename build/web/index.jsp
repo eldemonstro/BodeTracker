@@ -32,15 +32,12 @@
         <br>
         <div class="container">
             <div class="jumbotron">
-                <h1>Bode Tracker</h1>
-                <p class="lead">BEM VINDO AO BODE TRACKER, TODO MUNDO VAI MORRER</p>
+                <h1>Bode Tracker 🐐</h1>
+                <p class="lead">BEM VINDO AO BODE TRACKER, TODO MUNDO VAI MORRER 🐐</p>
                 <% if (usu != null) { %>
                 <p>BEM VINDO <%=usu.getNome()%></p>
                 <% }%>
-                <p>Essa desgraça aqui faz a conexão com o banco de dados via jsp
-                    pra fazer um CRUD do caralho (mas que merda hein) e demora muito 
-                    pra resolver as parada, se tu quer interagir nesse projeto boa 
-                    sorte :v</p>
+                <p>Se cadastre e cadastre os seus bodes!</p>
                 <div class="center-block">
                     <% if (usu == null) { %>
                     <a class="btn btn-default" href="${pageContext.request.contextPath}/usuario/login.jsp">Login</a>

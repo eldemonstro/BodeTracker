@@ -31,7 +31,7 @@
         </header>
         <br>
         <div class="container">
-            <h1>Registrar:</h1>
+            <h1>Login:</h1>
             <form action="entrar.jsp" method="POST">
                 <div class="form-group">
                     <label for="email">Email:</label>
