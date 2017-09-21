@@ -135,7 +135,6 @@ public class UsuarioDao {
 
     public Usuario altera(Usuario usu) throws SQLException {
         String sql = "UPDATE usuarios SET nome = ?, senha = ?, tipo = ? WHERE id = ?";
-        System.out.println(usu.getId());
         // seta os valores
         try ( // prepared statement para inserção
                 PreparedStatement stmt = c.prepareStatement(sql)) {
