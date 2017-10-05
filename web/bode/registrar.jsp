@@ -1,13 +1,16 @@
-<%@page import="io.github.eldemonstro.bodetracker.bean.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="io.github.eldemonstro.bodetracker.bean.Usuario"%>
 <%
     Usuario usu = (Usuario) session.getAttribute("usuario");
+    if (usu == null) {
+        response.sendRedirect("../index.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Editar - Bode Tracker</title>
+        <title>Registrar - Bode Tracker</title>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
@@ -20,35 +23,34 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav">
-                        <li><a class="nav-link" href="${pageContext.request.contextPath}/">Inicio</a></li>
-                            <% if (usu == null) { %>
-                        <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/login.jsp">Login</a></li>
-                        <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/registrar.jsp">Registrar</a></li>
-                            <% } else { %>
                         <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/editar.jsp">Editar</a></li>
+                        <li><a class="nav-link" href="${pageContext.request.contextPath}/bode/registrar.jsp">Registrar Bode</a></li>
                         <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/sair.jsp">Sair</a></li>
-                        <% }%></ul>
+                    </ul>
                 </div>
             </nav>
         </header>
         <br>
         <div class="container">
             <h1>Registrar:</h1>
-            <form action="alterar.jsp" method="POST">
+            <form action="incluir.jsp" method="POST">
                 <div class="form-group">
                     <label for="nome">Nome:</label>
-                    <input required type="input" class="form-control" id="nome" name="nome" value="${usu.getNome()}">
+                    <input required type="input" class="form-control" id="nome" name="nome" placeholder="Nome">
                 </div>
                 <div class="form-group">
-                    <label for="senha">Senha:</label>
-                    <input required type="password" class="form-control" name="senha" id="senha" placeholder="Senha">
+                    <label for="nome">Registro:</label>
+                    <input required type="input" class="form-control" id="registro" name="registro" placeholder="Registro">
                 </div>
                 <div class="form-group">
-                    <label for="confirmarSenha">Confirme a sua senha:</label>
-                    <input required type="password" class="form-control" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme senha">
+                    <label for="nome">Sexo:</label>
+                    <input required type="input" class="form-control" id="sexo"  name="sexo" placeholder="Sexo">
+                </div>
+                <div class="form-group">
+                    <label for="nome">Raça:</label>
+                    <input required type="input" class="form-control" id="raca"  name="raca" placeholder="Raça">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a class="btn btn-danger" href="excluir.jsp">Excluir</a>
             </form>
         </div>
 

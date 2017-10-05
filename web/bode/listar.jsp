@@ -1,15 +1,21 @@
-<%-- 
-    Document   : registrar
-    Created on : 01/09/2017, 12:02:51
-    Author     : demon
---%>
-
+<%@page import="java.util.List"%>
+<%@page import="io.github.eldemonstro.bodetracker.bean.Bode"%>
+<%@page import="io.github.eldemonstro.bodetracker.controller.BodeController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="io.github.eldemonstro.bodetracker.bean.Usuario"%>
+<%
+    Usuario usu = (Usuario) session.getAttribute("usuario");
+    if (usu == null) {
+        response.sendRedirect("../index.jsp");
+    }
+    BodeController bodeControl = new BodeController();
+    List<Bode> bodes = bodeControl.lista();
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login - Bode Tracker</title>
+        <title>Registrar - Bode Tracker</title>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
@@ -22,27 +28,23 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav">
-                        <li><a class="nav-link" href="${pageContext.request.contextPath}/">Inicio</a></li>
-                        <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/login.jsp">Login</a></li>
-                        <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/registrar.jsp">Registrar</a></li>
+                        <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/editar.jsp">Editar</a></li>
+                        <li><a class="nav-link" href="${pageContext.request.contextPath}/bode/registrar.jsp">Registrar Bode</a></li>
+                        <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/sair.jsp">Sair</a></li>
                     </ul>
                 </div>
             </nav>
         </header>
         <br>
         <div class="container">
-            <h1>Login:</h1>
-            <form action="entrar.jsp" method="POST">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input required type="email" class="form-control" id="email" name="email" aria-describedby="email" placeholder="Seu email">
-                </div>
-                <div class="form-group">
-                    <label for="senha">Senha:</label>
-                    <input required type="password" class="form-control" name="senha" id="senha" placeholder="Senha">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <h1>Listando todos os bodes</h1>
+
+            <table>
+                <% for (Bode bode : bodes) { %>
+                <%= bode.getNome() %> || <a href="seguir.jsp?id=<%= bode.getId() %>">Seguir</a>
+                <br/>
+                <% }%>
+            </table>
         </div>
 
         <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js">

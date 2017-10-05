@@ -24,6 +24,9 @@
                     <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/registrar.jsp">Registrar</a></li>
                     <% } else { %>
                     <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/editar.jsp">Editar</a></li>
+                    <li><a class="nav-link" href="${pageContext.request.contextPath}/bode/registrar.jsp">Registrar Bode</a></li>
+                    <li><a class="nav-link" href="${pageContext.request.contextPath}/bode/listar.jsp">Listar Bodes</a></li>
+                    <li><a class="nav-link" href="${pageContext.request.contextPath}/bode/meusbodes.jsp">Meus Bodes</a></li>
                     <li><a class="nav-link" href="${pageContext.request.contextPath}/usuario/sair.jsp">Sair</a></li>
                     <% }%>
                 </ul>

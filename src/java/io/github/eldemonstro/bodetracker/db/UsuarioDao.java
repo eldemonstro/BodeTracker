@@ -104,7 +104,7 @@ public class UsuarioDao {
     }
 
     public Usuario inseri(Usuario usu) throws SQLException {
-        String sql = "insert into usuarios" + " (email, nome, senha, tipo)" + " values (?,?,?,?)";
+        String sql = "insert into usuarios (email, nome, senha, tipo) values (?,?,?,?)";
 
         // seta os valores
         try ( // prepared statement para inserção
